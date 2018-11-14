@@ -8,6 +8,7 @@ file:test.py
 @author:宁同刚
 """
 from utils.parseExcel import ParseExcel
-pe=ParseExcel(r"C:\ntg\SimpletAutoTest\data\case.xlsx")
-s=pe.readRowValue(1,0)
-print(s)
+it1=[1,2,3,4,5]
+it2=[5,4,3,2,1]
+for i1,i2 in it1,it2:
+    print(i1,i2)
