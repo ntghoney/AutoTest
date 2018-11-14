@@ -10,5 +10,6 @@ file:test.py
 from utils.parseExcel import ParseExcel
 it1=[1,2,3,4,5]
 it2=[5,4,3,2,1]
-for i1,i2 in it1,it2:
-    print(i1,i2)
+it3=[]
+if it3 !=[]:
+    print("not null")
