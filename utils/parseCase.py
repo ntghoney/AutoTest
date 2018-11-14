@@ -17,7 +17,7 @@ class ParseCase:
         cases=[]
         keys=["caseId","caseTitle","casePage","caseStep","caseExcept","caseResult","caseIsSuccess"]
         for row in range(1,self.pe.getNrows(self.sheet)):
-            case=self.pe.readRowValue(self.sheet,row)
+            case=self.pe.getRowValue(self.sheet,row)
             cases.append(dict(zip(keys,case)))
         return cases
 
@@ -26,6 +26,9 @@ class ParseCase:
 if __name__ == '__main__':
     pc = ParseCase(casePath, 1)
     cases=pc.getCases()
-    for i in cases:
-        print(i)
+    for case in cases:
+        for item in case.keys():
+            if item == "caseStep":
+                steps = case[item].split("\n")
+                print(steps)
 

@@ -7,6 +7,7 @@ file:parseExcel.py
 import xlrd, xlwt
 from xlutils import copy
 import os
+from config.config import *
 
 
 class ParseExcel:
@@ -32,7 +33,7 @@ class ParseExcel:
         return self.__getSheet(msheet).ncols
 
     # 获得表中整行的数据
-    def readRowValue(self, msheet, row):
+    def getRowValue(self, msheet, row):
         # assert isinstance(sheet, xlrd.sheet.Sheet)
         rowValue = []
         sheet = self.__getSheet(msheet)
@@ -42,9 +43,24 @@ class ParseExcel:
             rowValue.append(cell)
         return rowValue
 
+    # 按行获得表中所有的数据
     def getAllData(self, sheet):
         data = []
         for row in range(1, self.getNrows(sheet)):
-            data.append(self.readRowValue(sheet, row))
+            data.append(self.getRowValue(sheet, row))
         return data
 
+    def getColValue(self, msheet, col):
+        colValue = []
+        sheet = self.__getSheet(msheet)
+        nrows = self.getNrows(msheet)
+        for row in range(nrows):
+            cell = sheet.cell_value(row, col)
+            colValue.append(cell)
+        return colValue
+
+
+if __name__ == '__main__':
+    pe = ParseExcel(casePath)
+    s = pe.getColValue(1, 1)
+    print(s)
