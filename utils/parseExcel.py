@@ -50,6 +50,7 @@ class ParseExcel:
             data.append(self.getRowValue(sheet, row))
         return data
 
+    #获得整例的数据
     def getColValue(self, msheet, col):
         colValue = []
         sheet = self.__getSheet(msheet)
@@ -59,8 +60,15 @@ class ParseExcel:
             colValue.append(cell)
         return colValue
 
+    #获得单元格的数据
+    def getCellValue(self,msheet,row,col):
+        sheet=self.__getSheet(msheet)
+        return sheet.cell_value(row,col)
+
+
+
 
 if __name__ == '__main__':
     pe = ParseExcel(casePath)
-    s = pe.getColValue(1, 1)
+    s = pe.getColValue(1, 3)
     print(s)
