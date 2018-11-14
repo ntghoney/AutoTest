@@ -1,0 +1,20 @@
+phone:
+  -
+   platformName: Android
+   platformVersion: 8.0.0
+   deviceName: FA75R1801858
+   resetKeyboard: True
+   unicodeKeyboard: True
+  -
+   platformName: Android
+   platformVersion: 8.0.0
+   deviceName: FA75R1801858
+   resetKeyboard: True
+   unicodeKeyboard: True
+
+appInfo:
+  appPackage: cn.magicwindow.uav.sdk
+  appActivity: io.merculet.activity.MainActivity
+
+remoteUrl:
+  url: 127.0.0.1:4723/wd/hub
